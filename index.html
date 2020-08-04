@@ -20,7 +20,10 @@
         let isScroll = false
 
         document.addEventListener('touchmove', (event) => {
-            event.preventDefault()
+            if (isScroll === false) {
+                event.preventDefault()
+            }
+
         }, { passive: false })
 
         document.addEventListener('touchstart', (event) => {
