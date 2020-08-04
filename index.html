@@ -16,8 +16,21 @@
     experimental
     <script>
 
+        let isScroll = false
+
         document.addEventListener('touchmove', (event) => {
             event.preventDefault()
+        }, { passive: false })
+
+        document.addEventListener('touchstart', (event) => {
+            if (isScroll) {
+                document.body.style.overflow = "hideen"
+                isScroll = false
+            } else {
+                document.body.style.overflow = "scroll"
+                isScroll = true
+            }
+
         }, { passive: false })
 
     </script>
